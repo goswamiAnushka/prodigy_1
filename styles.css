@@ -17,7 +17,7 @@ body {
 header {
     background: linear-gradient(90deg, #1e3c72, #2a5298);
     color: #fff;
-    padding: 15px 0;
+    padding: 15px 5%;
     position: fixed;
     width: 100%;
     top: 0;
@@ -31,7 +31,7 @@ header {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    width: 100%;
 }
 
 .logo a {
@@ -104,50 +104,144 @@ header {
     transform: rotate(-45deg) translateY(-7px);
 }
 
-/* Sections styles */
+/* Section styles */
 section {
-    padding: 120px 20px;
+    padding: 80px 5%;
     margin-top: 80px;
+    position: relative;
 }
 
+/* Home section */
 section#home {
-    background: url('https://via.placeholder.com/1200x600') no-repeat center center/cover;
+    background: url('https://avaelgo.ro/wp-content/uploads/2017/07/Landing-page-background.jpg') no-repeat center center/cover;
     color: #fff;
     text-align: center;
+    overflow: hidden;
+}
+
+section#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
 section#home h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    position: relative;
 }
 
 section#home p {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-bottom: 40px;
+    z-index: 2;
+    position: relative;
 }
 
-section#about, section#services, section#portfolio, section#contact {
+/* About, Services, Portfolio, Contact sections */
+section#about,
+section#services,
+section#portfolio,
+section#contact {
     background: #fff;
     text-align: center;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
 }
 
-section h2 {
-    font-size: 2.5rem;
+section#about::before,
+section#services::before,
+section#portfolio::before,
+section#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0));
+    z-index: 1;
+}
+
+section#about h2,
+section#services h2,
+section#portfolio h2,
+section#contact h2 {
+    font-size: 2.8rem;
     margin-bottom: 20px;
     color: #333;
+    position: relative;
+    z-index: 2;
 }
 
-section p {
-    font-size: 1.3rem;
+section#about p,
+section#services p,
+section#portfolio p,
+section#contact p {
+    font-size: 1.4rem;
     max-width: 800px;
     margin: 0 auto;
     color: #666;
+    position: relative;
+    z-index: 2;
+}
+
+section#home h1,
+section#home p {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+section#home:hover h1,
+section#home:hover p {
+    transform: translateY(-10px);
+    opacity: 0.9;
 }
 
 /* Media queries for responsive design */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0 10px;
+    }
+
+    .nav-menu a {
+        font-size: 1.1rem;
+        padding: 8px 12px;
+    }
+
+    section#home h1 {
+        font-size: 3rem;
+    }
+
+    section#home p {
+        font-size: 1.6rem;
+    }
+
+    section#about h2,
+    section#services h2,
+    section#portfolio h2,
+    section#contact h2 {
+        font-size: 2.5rem;
+    }
+
+    section#about p,
+    section#services p,
+    section#portfolio p,
+    section#contact p {
+        font-size: 1.3rem;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-menu ul {
         display: none;
@@ -177,7 +271,46 @@ section p {
         font-size: 1.4rem;
     }
 
-    section p {
-        font-size: 1.1rem;
+    section#about h2,
+    section#services h2,
+    section#portfolio h2,
+    section#contact h2 {
+        font-size: 2rem;
+    }
+
+    section#about p,
+    section#services p,
+    section#portfolio p,
+    section#contact p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu a {
+        font-size: 1rem;
+        padding: 6px 10px;
+    }
+
+    section#home h1 {
+        font-size: 2rem;
+    }
+
+    section#home p {
+        font-size: 1.2rem;
+    }
+
+    section#about h2,
+    section#services h2,
+    section#portfolio h2,
+    section#contact h2 {
+        font-size: 1.8rem;
+    }
+
+    section#about p,
+    section#services p,
+    section#portfolio p,
+    section#contact p {
+        font-size: 1rem;
     }
 }
