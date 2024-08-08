@@ -7,43 +7,49 @@
 
 /* Overall page styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: #f0f0f0;
+    background: #f4f4f4;
 }
 
 /* Navbar styles */
 header {
-    background: linear-gradient(45deg, #ff6f61, #ff9a8b);
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
     color: #fff;
     padding: 15px 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .logo a {
     text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.6rem;
+    font-weight: 700;
     color: #fff;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: #e0e0e0;
 }
 
 .nav-menu ul {
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
 .nav-menu li {
@@ -53,37 +59,54 @@ header {
 .nav-menu a {
     text-decoration: none;
     color: #fff;
-    font-size: 1.1rem;
-    padding: 10px;
-    transition: color 0.3s ease;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-menu a:hover {
-    color: #ffb3a6;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
 }
 
+/* Navbar styles when scrolling */
+#navbar.scrolled {
+    background: linear-gradient(90deg, #2a5298, #1e3c72);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Nav toggle button styles */
 .nav-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    gap: 4px;
 }
 
 .nav-toggle span {
     background: #fff;
     height: 3px;
-    margin: 4px 0;
-    width: 25px;
+    width: 30px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
-/* Navbar styles when scrolling */
-#navbar.scrolled {
-    background: linear-gradient(45deg, #ff9a8b, #ff6f61);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.nav-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7px);
 }
 
 /* Sections styles */
 section {
-    padding: 100px 20px;
+    padding: 120px 20px;
     margin-top: 80px;
 }
 
@@ -94,26 +117,31 @@ section#home {
 }
 
 section#home h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 section#home p {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    margin-bottom: 40px;
 }
 
 section#about, section#services, section#portfolio, section#contact {
     background: #fff;
     text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 section h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #333;
 }
 
 section p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     max-width: 800px;
     margin: 0 auto;
     color: #666;
@@ -129,7 +157,7 @@ section p {
         display: flex;
         flex-direction: column;
         position: absolute;
-        background: #ff6f61;
+        background: #1e3c72;
         top: 60px;
         left: 0;
         width: 100%;
@@ -142,14 +170,14 @@ section p {
     }
 
     section#home h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     section#home p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     section p {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
