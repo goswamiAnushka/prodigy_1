@@ -403,6 +403,28 @@ footer a:hover {
         width: 100%;
     }
 }
+/* Initial navbar styling */
+#navbar {
+    background-color: transparent; /* Default background color */
+    transition: background-color 0.3s ease;
+}
+
+/* Background color when scrolled */
+#navbar.scrolled {
+    background-color: #3498db; /* Change to the desired color */
+}
+
+/* Navbar link styling */
+#navbar a {
+    color: white; /* Default link color */
+    transition: color 0.3s ease;
+}
+
+/* Change link color when navbar is scrolled */
+#navbar.scrolled a {
+    color: #f1f1f1; /* Change to the desired link color */
+}
+
 /* Contact Section */
 section#contact {
     background: #2d3748; /* Darker background for contrast */
