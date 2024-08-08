@@ -406,7 +406,7 @@ footer a:hover {
 /* Contact Section */
 section#contact {
     background: #2d3748; /* Darker background for contrast */
-    color: #edf2f7; /* Light text color for readability */
+    color: #ffffff; /* Light text color for readability */
     padding: 80px 5%;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
@@ -479,22 +479,23 @@ section#contact {
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border: 2px solid #4fd1c5; /* Teal border on focus */
+    border: 2px solid #dcf5f2; /* Teal border on focus */
 }
 
 .contact-form button.cta-button {
-    background: #4fd1c5; /* Teal button for contrast */
-    color: #1a202c; /* Dark text for readability */
+    background: #ddf2f0; /* Teal button for contrast */
+    color: #010712; /* Dark text for readability */
     padding: 12px 30px;
     border: none;
     border-radius: 5px;
     font-size: 1.2rem;
     cursor: pointer;
+    margin-top: 10px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form button.cta-button:hover {
-    background: #38b2ac; /* Darker teal on hover */
+    background: #dae5e4; /* Darker teal on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Button shadow on hover */
 }
 
