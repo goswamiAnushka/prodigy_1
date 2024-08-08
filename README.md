@@ -1,26 +1,43 @@
-Scroll-Based Navbar Color Change
-This project implements a dynamic navbar that changes its background color when the user scrolls down the page. The purpose of this enhancement is to provide a more engaging and visually appealing navigation experience.
+# Responsive Landing Page with Navbar
 
-Task Overview
-The task involved adding a scroll-based background color change to the navbar. As the user scrolls down the page, the navbar’s background color changes to improve readability and provide a smooth user experience.
+## Overview
 
-How I Did It
-JavaScript:
+This project is part of an internship task assigned by Prodigy InfoTech. The task involves creating a responsive landing page that includes a navigation bar (navbar) using HTML, CSS, and JavaScript. The navbar should have toggle functionality for mobile responsiveness and hover effects for improved user interaction.
 
-A scroll event listener was added to the window object to monitor the user's scrolling activity.
-When the scroll position exceeds a set threshold (e.g., 100 pixels), a new class is applied to the navbar, triggering a change in the background color.
-The class is removed when the user scrolls back to the top, restoring the original background color.
-CSS:
+## Features
 
-The .scrolled class was defined to change the navbar’s background color and adjust the link colors if necessary.
-A smooth transition effect was added to enhance the visual appeal when the background color changes.
-Technologies Used
-HTML5
-CSS3
-JavaScript (ES6)
-How to Use
-Clone the repository to your local machine.
-Open the index.html file in your preferred browser.
-Scroll down the page to see the navbar's background color change.
-Acknowledgments
-This enhancement improves user experience by providing a responsive and visually appealing navbar that adapts to scrolling behavior.
+- **Responsive Design**: The landing page is designed to be fully responsive, adapting to various screen sizes and devices.
+- **Navigation Bar**: The navbar includes links that navigate to different sections of the landing page. It also has a toggle button for mobile devices.
+- **Toggle Functionality**: On smaller screens, the navbar links are hidden by default and can be toggled using the hamburger menu button.
+- **Hover Effects**: Smooth color transition effects are applied to the navbar links when hovered over.
+
+## Technologies Used
+
+- **HTML**: Used for the structure of the landing page.
+- **CSS**: Used for styling the landing page, including the navbar, layout, and hover effects.
+- **JavaScript**: Used to add interactivity to the navbar, such as toggle functionality and hover effects.
+
+## Project Structure
+
+The project consists of the following files:
+
+- `index.html`: The main HTML file that contains the structure of the landing page.
+- `styles.css`: The CSS file responsible for styling the landing page, including the responsive layout, navbar design, and hover effects.
+- `script.js`: The JavaScript file that adds interactivity to the navbar, such as toggle functionality for the mobile menu and hover effects.
+
+## Setup Instructions
+
+To view the landing page locally:
+
+1. Clone the repository to your local machine using `git clone <repository-url>`.
+2. Open the `index.html` file in your preferred web browser.
+
+## Usage
+
+- Resize the browser window to see the responsive design in action.
+- On smaller screens, click the hamburger menu to toggle the visibility of the navbar links.
+- Hover over the navbar links to see the smooth color transition effects.
+
+## License
+
+This project is for educational purposes as part of an internship assignment. No license is applied.
