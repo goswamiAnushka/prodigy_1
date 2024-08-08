@@ -1,7 +1,7 @@
 // Change the navbar background color when scrolling
 window.onscroll = function() {
     const navbar = document.getElementById('navbar');
-    if (window.scrollY > 100) {
+    if (window.scrollY > 100) { // Adjust the scroll value as needed
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
