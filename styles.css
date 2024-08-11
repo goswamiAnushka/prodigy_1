@@ -175,15 +175,15 @@ section#about p {
 
 /* Services section */
 section#services {
-    background: #edf2f7;
+    background: #e2e8f0;
     color: #2d3748;
     padding: 60px 5%;
+    text-align: center;
 }
 
 section#services h2 {
     font-size: 3rem;
     margin-bottom: 20px;
-    text-align: center;
     color: #2c5282;
 }
 
@@ -196,47 +196,52 @@ section#services p {
 
 /* Portfolio section */
 section#portfolio {
-    background: #f7fafc;
-    color: #2d3748;
+    background: #edf2f7;
     padding: 60px 5%;
     text-align: center;
+    color: #2d3748;
+}
+
+section#portfolio h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #2c5282;
 }
 
 .portfolio-gallery {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
 .portfolio-item {
-    width: 30%;
-    overflow: hidden;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
     border-radius: 10px;
-    margin-bottom: 20px;
 }
 
 .portfolio-item img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
-.portfolio-item .overlay {
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     color: #fff;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -245,41 +250,102 @@ section#portfolio {
     opacity: 1;
 }
 
-.portfolio-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.overlay p {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Contact section */
 section#contact {
-    background: #edf2f7;
+    background: #f7fafc;
     color: #2d3748;
     padding: 60px 5%;
-    text-align: center;
 }
 
 section#contact h2 {
     font-size: 3rem;
     margin-bottom: 20px;
     color: #2c5282;
+    text-align: center;
 }
 
-section#contact p {
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 1.5rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #4a5568;
+}
+
+.contact-item i {
+    color: #2c5282;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    color: #2d3748;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #cbd5e0;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.cta-button {
+    background: #2c5282;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #2a4365;
 }
 
 /* Footer styles */
 footer {
-    background: #1a202c;
+    background: #2d3748;
     color: #edf2f7;
-    padding: 20px 5%;
     text-align: center;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 40px;
 }
 
 footer p {
@@ -289,18 +355,51 @@ footer p {
 footer a {
     color: #63b3ed;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
 footer a:hover {
-    color: #4299e1;
+    text-decoration: underline;
 }
 
-/* Keyframes for animations */
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: #1a202c;
+        height: calc(100vh - 60px);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .portfolio-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Animations */
 @keyframes slideInDown {
     from {
         opacity: 0;
-        transform: translateY(-100%);
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
@@ -311,228 +410,66 @@ footer a:hover {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(100%);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
-/* Media queries for responsive design */
-@media (max-width: 1024px) {
-    .nav-container {
-        padding: 0 10px;
-    }
-
-    .nav-menu a {
-        font-size: 1.1rem;
-        padding: 8px 12px;
-    }
-
-    section#home h1 {
-        font-size: 3.5rem;
-    }
-
-    section#home p {
-        font-size: 1.6rem;
-    }
-
-    section#about h2,
-    section#services h2,
-    section#portfolio h2,
-    section#contact h2 {
-        font-size: 2.5rem;
-    }
-
-    section#about p,
-    section#services p,
-    section#portfolio p,
-    section#contact p {
-        font-size: 1.3rem;
-    }
-
-    .portfolio-item {
-        width: 45%;
-    }
-}
-
 @media (max-width: 768px) {
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .nav-toggle {
         display: flex;
     }
 
-    .nav-menu.open ul {
-        display: flex;
-        flex-direction: column;
-        background: #2d3748;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-menu.open ul li {
-        margin-bottom: 10px;
+    section {
+        padding: 40px 5%;
     }
 
     section#home h1 {
-        font-size: 2.5rem;
-    }
-
-    section#home p {
-        font-size: 1.4rem;
-    }
-
-    section#about h2,
-    section#services h2,
-    section#portfolio h2,
-    section#contact h2 {
-        font-size: 2rem;
-    }
-
-    section#about p,
-    section#services p,
-    section#portfolio p,
-    section#contact p {
-        font-size: 1.2rem;
-    }
-
-    .portfolio-item {
-        width: 100%;
+        font-size: 3rem;
     }
 }
-/* Initial navbar styling */
-#navbar {
-    background-color: transparent; /* Default background color */
-    transition: background-color 0.3s ease;
+/* Initially hide the mobile menu */
+.nav-menu {
+    display: none;
 }
 
-/* Background color when scrolled */
-#navbar.scrolled {
-    background-color: #3498db; /* Change to the desired color */
-}
-
-/* Navbar link styling */
-#navbar a {
-    color: white; /* Default link color */
-    transition: color 0.3s ease;
-}
-
-/* Change link color when navbar is scrolled */
-#navbar.scrolled a {
-    color: #f1f1f1; /* Change to the desired link color */
-}
-
-/* Contact Section */
-section#contact {
-    background: #2d3748; /* Darker background for contrast */
-    color: #ffffff; /* Light text color for readability */
-    padding: 80px 5%;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
-    position: relative;
-    text-align: center;
-}
-
-.contact-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 50px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-}
-
-.contact-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 1.2rem;
-}
-
-.contact-item i {
-    font-size: 1.8rem;
-    color: #e2e8f0;
-}
-
-.contact-form {
-    flex: 2;
-    background: #1a202c; /* Darker form background for contrast */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Form shadow for depth */
-}
-
-.contact-form .form-group {
-    margin-bottom: 20px;
-}
-
-.contact-form label {
+/* Show the mobile menu when toggle is clicked */
+.nav-menu.nav-menu_visible {
     display: block;
-    margin-bottom: 8px;
-    font-size: 1.1rem;
-    color: #edf2f7;
 }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #1a202c; /* Dark text on light background */
-    background: #edf2f7; /* Light background for input fields */
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border: 2px solid #dcf5f2; /* Teal border on focus */
-}
-
-.contact-form button.cta-button {
-    background: #ddf2f0; /* Teal button for contrast */
-    color: #010712; /* Dark text for readability */
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
+/* Style the toggle button for mobile */
+.nav-toggle {
+    display: none;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-form button.cta-button:hover {
-    background: #dae5e4; /* Darker teal on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Button shadow on hover */
+.nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    margin: 5px;
+    background-color: #f8f4f4;
 }
 
+/* Display the toggle button on smaller screens */
 @media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        gap: 30px;
+    .nav-toggle {
+        display: block;
     }
 
-    .contact-info {
-        align-items: center;
+    .nav-menu {
+        display: none; /* Hidden by default */
     }
 
-    .contact-form {
-        padding: 20px;
+    .nav-menu.nav-menu_visible {
+        display: block; /* Visible when toggle is active */
     }
 }
-
